@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TEST</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+    <script src="a.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="b.js"></script>
+    <style>
+      * {
+        margin:  0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 15px;
+        font-family: 'Viaoda Libre', serif;
+      }
+      .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+        font-family: sans-serif;
+      }
+
+      .xx-loader {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .xx-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+        font-family: sans-serif;
+      }
+
+      .thatthat {
+        position: fixed;
+        width: 100vw;
+        height: 95vh;
+        left: 0;
+        bottom: -110vh;
+        transition: bottom 0.7s;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        /* background-color: white; */
+        display: block;
+        z-index: 99999;
+        padding: 20px;
+        padding-top: 26px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+
+      .trigger_btn {
+        position: relative;
+        width: 200px;
+        height: 50px;
+        font-size: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+        border-radius: 18px;
+        border: 3px solid #1A1F4D;
+        background-color: rgb(255, 240, 127);
+        margin-left: 58px;
+        margin-top: 460px;
+      }
+
+      .thisthis {
+        position: fixed;
+        width: 100vw;
+        height: 88vh;
+        left: 0;
+        bottom: -110vh;
+        transition: bottom 0.8s;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        /* background-color: rgb(86, 65, 65); */
+        display: block;
+        z-index: 99999;
+        padding: 20px;
+        padding-top: 26px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+
+      .thisthis img {
+        width: 100%;
+        margin-top: 20%;
+      }
+
+      .first_popup {
+        position: relative;
+        width: 300px;
+        height: calc(100px - 12px);
+        background-color: #E0D4AB;
+        border: 3px solid #3b3b3b;
+        border-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+        text-align: center;
+        padding-top: 12px;
+      }
+
+      .first_popup h1 {
+        color: #3b3b3b;
+      }
+
+      .second_popup {
+        width: calc(95% - 15px);
+        height: auto;
+        background-color: #E0D4AB;
+        border: 2px solid #787878;
+        border-radius: 5px;
+        padding-top: 8px;
+        padding-left: 15px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      h1 {
+        font-size: 2em;
+        text-transform: uppercase;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-weight: bolder;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        text-transform: none;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      
+      #xx {
+        display: block;
+      }
+    </style>
+
+    <script>
+      AFRAME.registerComponent('markerhandler', {
+        init: function () {
+          this.el.addEventListener('markerFound', () => {
+            var check = this.el.getAttribute("url");
+            // alert(check);
+            document.getElementById('begin1').style.bottom = "0";
+            document.getElementById('begin2').style.bottom = "-110vh";
+            document.getElementById('begin3').style.bottom = "-110vh";
+            document.getElementById('begin4').style.bottom = "-110vh";
+            document.getElementById('begin5').style.bottom = "-110vh";
+          });
+          
+          this.el.addEventListener('markerLost', () => {
+            document.getElementById('begin1').style.bottom = "-110vh";
+            document.getElementById('after1').style.bottom = "-110vh";
+            document.getElementById('begin2').style.bottom = "-110vh";
+            document.getElementById('begin3').style.bottom = "-110vh";
+            document.getElementById('begin4').style.bottom = "-110vh";
+            document.getElementById('begin5').style.bottom = "-110vh";
+          });
+        }
+      });
+
+      AFRAME.registerComponent('markerhandler2', {
+        init: function () {
+          this.el.addEventListener('markerFound', () => {
+            var check = this.el.getAttribute("url");
+            // alert(check);
+            document.getElementById('begin2').style.bottom = "0";
+            document.getElementById('begin1').style.bottom = "-110vh";
+            document.getElementById('begin3').style.bottom = "-110vh";
+            document.getElementById('begin4').style.bottom = "-110vh";
+            document.getElementById('begin5').style.bottom = "-110vh";
+          });
+          
+          this.el.addEventListener('markerLost', () => {
+            document.getElementById('begin2').style.bottom = "-110vh";
+            document.getElementById('after2').style.bottom = "-110vh";
+            document.getElementById('begin1').style.bottom = "-110vh";
+            document.getElementById('begin3').style.bottom = "-110vh";
+            document.getElementById('begin4').style.bottom = "-110vh";
+            document.getElementById('begin5').style.bottom = "-110vh";
+          });
+        }
+      });
+
+      AFRAME.registerComponent('markerhandler3', {
+        init: function () {
+          this.el.addEventListener('markerFound', () => {
+            var check = this.el.getAttribute("url");
+            // alert(check);
+            document.getElementById('begin3').style.bottom = "0";
+            document.getElementById('begin1').style.bottom = "-110vh";
+            document.getElementById('begin2').style.bottom = "-110vh";
+            document.getElementById('begin4').style.bottom = "-110vh";
+            document.getElementById('begin5').style.bottom = "-110vh";
+          });
+          
+          this.el.addEventListener('markerLost', () => {
+            document.getElementById('begin3').style.bottom = "-110vh";
+            document.getElementById('after3').style.bottom = "-110vh";
+            document.getElementById('begin1').style.bottom = "-110vh";
+            document.getElementById('begin2').style.bottom = "-110vh";
+            document.getElementById('begin4').style.bottom = "-110vh";
+            document.getElementById('begin5').style.bottom = "-110vh";
+          });
+        }
+      });
+
+      AFRAME.registerComponent('markerhandler4', {
+        init: function () {
+          this.el.addEventListener('markerFound', () => {
+            var check = this.el.getAttribute("url");
+            // alert(check);
+            document.getElementById('begin4').style.bottom = "0";
+            document.getElementById('begin1').style.bottom = "-110vh";
+            document.getElementById('begin2').style.bottom = "-110vh";
+            document.getElementById('begin3').style.bottom = "-110vh";
+            document.getElementById('begin5').style.bottom = "-110vh";
+          });
+          
+          this.el.addEventListener('markerLost', () => {
+            document.getElementById('begin4').style.bottom = "-110vh";
+            document.getElementById('after4').style.bottom = "-110vh";
+            document.getElementById('begin1').style.bottom = "-110vh";
+            document.getElementById('begin2').style.bottom = "-110vh";
+            document.getElementById('begin3').style.bottom = "-110vh";
+            document.getElementById('begin5').style.bottom = "-110vh";
+          });
+        }
+      });
+
+      AFRAME.registerComponent('markerhandler5', {
+        init: function () {
+          this.el.addEventListener('markerFound', () => {
+            var check = this.el.getAttribute("url");
+            // alert(check);
+            document.getElementById('begin5').style.bottom = "0";
+            document.getElementById('begin1').style.bottom = "-110vh";
+            document.getElementById('begin2').style.bottom = "-110vh";
+            document.getElementById('begin3').style.bottom = "-110vh";
+            document.getElementById('begin4').style.bottom = "-110vh";
+          });
+          
+          this.el.addEventListener('markerLost', () => {
+            document.getElementById('begin5').style.bottom = "-110vh";
+            document.getElementById('after5').style.bottom = "-110vh";
+            document.getElementById('begin1').style.bottom = "-110vh";
+            document.getElementById('begin2').style.bottom = "-110vh";
+            document.getElementById('begin3').style.bottom = "-110vh";
+            document.getElementById('begin4').style.bottom = "-110vh";
+          });
+        }
+      });
+    </script>
+  </head>
+  
+  <body style="margin: 0px; overflow: hidden;" onload="document.getElementById('xx').style.display='none'">
+    <div id="xx" class="xx-loader"><div>Loading, please wait...</div></div>
+    <div class="arjs-loader"><div>Loading, please wait...</div></div>
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+
+      <a-nft
+      markerhandler
+        type="nft"
+        url="cremedasg2/assets/pic1"
+        smooth="true"
+        smoothCount="100"
+        smoothTolerance=".1"
+        smoothThreshold="50">
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      </a-nft>
+
+      <a-nft
+      markerhandler2
+        type="nft"
+        url="cremedasg2/assets/pic2"
+        smooth="true"
+        smoothCount="100"
+        smoothTolerance=".1"
+        smoothThreshold="50">
+      </a-nft>
+      
+      <a-nft
+      markerhandler3
+        type="nft"
+        url="cremedasg2/assets/pic3"
+        smooth="true"
+        smoothCount="100"
+        smoothTolerance=".1"
+        smoothThreshold="50">
+      </a-nft>
+
+      <a-nft
+      markerhandler4
+        type="nft"
+        url="cremedasg2/assets/pic4"
+        smooth="true"
+        smoothCount="100"
+        smoothTolerance=".1"
+        smoothThreshold="50">
+      </a-nft>
+
+      <a-nft
+      markerhandler5
+        type="nft"
+        url="cremedasg2/assets/pic5"
+        smooth="true"
+        smoothCount="100"
+        smoothTolerance=".1"
+        smoothThreshold="50">
+      </a-nft>
+
+      <a-entity camera></a-entity>
+
+    </a-scene>
+
+    <div id="begin1" class="thatthat">
+      <div class="first_popup">
+        <h1>First Hint</h1>
+        <div class="gone"></div>
+      </div>
+      <audio class="audio" src="assets/achieved.m4a"></audio>
+      <button id="trigger1" class="trigger_btn">Let's see...</button>
+    </div>
+    <div id="after1" class="thisthis">
+      <div class="second_popup">
+        <h2>The thief has long hair! Good for them.</h2>
+      </div>
+      <img src="assets/clue1.png">
+    </div>
+
+    <div id="begin2" class="thatthat">
+      <div class="first_popup">
+        <h1>Second Hint</h1>
+        <div class="gone"></div>
+      </div>
+      <audio class="audio" src="assets/achieved.m4a"></audio>
+      <button id="trigger2" class="trigger_btn">Let's see...</button>
+    </div>
+    <div id="after2" class="thisthis">
+      <div class="second_popup">
+        <h2>The thief has an unpleasant face..</h2>
+      </div>
+      <img src="assets/clue2.png">
+    </div>
+
+    <div id="begin3" class="thatthat">
+      <div class="first_popup">
+        <h1>Third Hint</h1>
+        <div class="gone"></div>
+      </div>
+      <audio class="audio" src="assets/achieved.m4a"></audio>
+      <button id="trigger3" class="trigger_btn">Let's see...</button>
+    </div>
+    <div id="after3" class="thisthis">
+      <div class="second_popup">
+        <h2>The thief is short lol.</h2>
+      </div>
+      <img src="assets/clue3.png">
+    </div>
+  </body>
+
+  <div id="begin4" class="thatthat">
+      <div class="first_popup">
+        <h1>Fourth Hint</h1>
+        <div class="gone"></div>
+      </div>
+      <audio class="audio" src="assets/achieved.m4a"></audio>
+      <button id="trigger4" class="trigger_btn">Let's see...</button>
+    </div>
+    <div id="after4" class="thisthis">
+      <div class="second_popup">
+        <h2>The thief has tatoos. That's a pretty generic criminal isn't it?</h2>
+      </div>
+      <img src="assets/clue4.png">
+    </div>
+  </body>
+
+  <div id="begin5" class="thatthat">
+      <div class="first_popup">
+        <h1>Fifth Hint</h1>
+        <div class="gone"></div>
+      </div>
+      <audio class="audio" src="assets/achieved.m4a"></audio>
+      <button id="trigger5" class="trigger_btn">Let's see...</button>
+    </div>
+    <div id="after5" class="thisthis">
+      <div class="second_popup">
+        <h2>The thief has a big nose too btw.</h2>
+      </div>
+      <img src="assets/clue5.png">
+    </div>
+  </body>
+
+  <script>
+    const audio = document.querySelector('audio');
+
+      document.getElementById('trigger1').addEventListener('click', () => {
+        audio.play();
+        document.getElementById('begin1').style.bottom = "-110vh";
+        document.getElementById('after1').style.bottom = "0";
+      });
+
+      document.getElementById('trigger2').addEventListener('click', () => {
+        audio.play();
+        document.getElementById('begin2').style.bottom = "-110vh";
+        document.getElementById('after2').style.bottom = "0";
+      });
+
+      document.getElementById('trigger3').addEventListener('click', () => {
+        audio.play();
+        document.getElementById('begin3').style.bottom = "-110vh";
+        document.getElementById('after3').style.bottom = "0";
+      });
+
+      document.getElementById('trigger4').addEventListener('click', () => {
+        audio.play();
+        document.getElementById('begin4').style.bottom = "-110vh";
+        document.getElementById('after4').style.bottom = "0";
+      });
+
+      document.getElementById('trigger5').addEventListener('click', () => {
+        audio.play();
+        document.getElementById('begin5').style.bottom = "-110vh";
+        document.getElementById('after5').style.bottom = "0";
+      });
+  </script>
+</html>
