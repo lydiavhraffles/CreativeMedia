@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+        <title>Starting screen</title>
+    </head>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Viaoda Libre', serif;
+        }
+
+        body {
+            background-color: #E0D4AB;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: bolder;
+        }
+
+        #startscreen {
+          background-color: #E0D4AB;
+          position: fixed;
+          width: calc(100vw - 40px);
+          height: calc(100vh - 30px);
+          padding-top: 30px;
+          padding-left: 40px;
+        }
+
+        #btn {
+            height: calc(50px - 10px);
+            position: absolute;
+            background-color: rgb(143, 224, 143);
+            margin-top: 40px;
+            font-size: 30px;
+            font-weight: 600;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border: 3px solid #787878;
+            text-decoration: none;
+            text-align: center;
+            color: black;
+        }
+        #btn:hover {
+            background-color: rgb(41, 120, 41);
+            border: 4px solid #323232;
+        }
+    </style>
+    
+    <body>
+        <div id="startscreen" class="start">
+            <h1>How to play:<br>1. Enter the building.<br>2. Find clues scattered around, use arjs link to access the clue. Make sure you memorize everything.
+            <br>3. Go back outside and click the car to enter suspect selection screen.<br><br>Good luck detective.</h1>
+            <a href="outside.html" id="btn">Let's go</a>
+        </div>
+    </body>
